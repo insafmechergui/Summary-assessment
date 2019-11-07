@@ -18,7 +18,7 @@ $('#create').on('click', function() {
 });
 
 $('#delete').on('click', function() {
-
+//remove the li 
 	if($("#check1").prop('checked') && $("#check2").prop('checked') && $("#check3").prop('checked')) {
 		$('ul li').remove();
 	}
