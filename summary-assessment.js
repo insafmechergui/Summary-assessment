@@ -112,8 +112,11 @@ function each(coll, f) {
     var array = string.split('');
     var count = 0;
 
-    return reduce(array, function(element){
-      return element === xhar
+    return filter(array, function(element){
+      if (element === character) {
+        count++;
+      }
+      return count;
     });
 
   }
@@ -173,8 +176,8 @@ function each(coll, f) {
   function repeatString(str, count) {
     var string = '';
 
-    if(count === 0) {
-      return string = '';  
+    while(count > 0) {
+      return string;  
     }
     return string + repeatString(str, count-1)
   }
@@ -219,7 +222,7 @@ function each(coll, f) {
             return this.ingredient.split(',');
           },
       bakePizza: function() {
-            setTimeout('Your thin M 8 slice pizza is done', 2000)
+            return setTimeout('Your thin M 8 slice pizza is done', 2000);
           },
       eatSlice: function() {
             if(this.numberOfSlice > 0) {
@@ -310,8 +313,19 @@ var finishCurrentBook = function() {
   function makeSafe(integer) {
     return {
       addItem: function(item, itemSize) {
-          
-        }
+          if (integer = 3) {
+            itemSize === "big"
+          }
+          else if (integer = 2) {
+            itemSize === "medium";
+          }
+          else if (integer = 1) {
+            itemSize === "small";
+          } 
+          else {
+            return "Can't fit"
+          }
+      }
     }
   }
   //=============================================================================
@@ -354,10 +368,11 @@ var finishCurrentBook = function() {
   //================================================================================
   // Theoretical questions.
   // 1- In your own words,Why do we use Closures ?
-  
+  //to return an object that has all the properties 
   // 2- In OOP, what does "this" refer to ?
-  
+  //refer to the propertie that existe in our class 
   // 3- What is jQuery?
-  
+  //librairy of js that has  
   // 4- what is the diffrence between Closure's methods and The OOP's methods?
-  
+  //closure method will return a function 
+  //the OOP has different keys inside of the function and will return anobject
