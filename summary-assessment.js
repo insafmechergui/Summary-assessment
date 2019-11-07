@@ -57,11 +57,33 @@ function each(coll, f) {
   //containing the length of each word in that string.
   //solve it using the most appropriate helper functions(reduce,each,map,filter).
   //wordLengths("hello its me") // [5,3,2]
-  
+  /*
   function wordLengths(str) {
+    //split the text => array
+    //for array.length
+    //map => array[i].length
+
+    var arrayStr = str.split(' ');
+    var tab = [];
+
+    for (var i = 0; i < arrayStr.length; i++) {
+      tab.push(arrayStr[i].length);
       // TODO: your code here 
+    }
+    return tab;
   }
   
+
+  */
+  function wordLengths(str) {
+    //split the str by space
+
+    var arrayStr = str.split(' ');
+//return the length of array[i] 
+    return map(arrayStr, function(element){
+      return element.length;
+    });
+  }
   //=============================================================================
   /*                                  Q2                                    */
   //=============================================================================
