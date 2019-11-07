@@ -93,10 +93,31 @@ function each(coll, f) {
   // countOccurrences("hello", "l"); // 2
   // countOccurrences("hello, world!", "l"); // 3
   
+  /*
   function countOccurrences(string, character) {
+    //split the string by character
+    //iterate over the array to find if the character is the same as array[i]
+    var count =0;
+    var array = string.split('');
+    for (var i = 0; i < array.length; i++) { 
+      if (character === array[i]) {
+        count++;
+      }
       // your code is here
-  }
+    }
+    return count;
+  }*/
   
+  function countOccurrences(string, character) {
+    var array = string.split('');
+    var count = 0;
+
+    return reduce(array, function(element){
+      return element === xhar
+    });
+
+  }
+
   //=============================================================================
   /*                                  Q3                                    */
   //=============================================================================
@@ -105,7 +126,18 @@ function each(coll, f) {
   //solve it using the most appropriate helper functions(reduce,each,map,filter).
   // wordsLongerThanThree("Hello Mad World") //["Hello", "World"]
   
+  //str.split
+  //for array.length
+  //if array[i].length > 3
+
+
   function wordsLongerThanThree(str) {
+//split str
+    var array = str.split(' ');
+//filter => array element.length > 3
+    return filter(array, function(element) {
+        return element.length > 3;  
+    });
       // TODO: your code here 
   }
   
@@ -120,10 +152,32 @@ function each(coll, f) {
   //repeatString('dog', 2); // => 'dog' + 'dog' => 'dogdog' 
   //repeatString('dog', 3); // => 'dog' + 'dog' + 'dog' => 'dogdogdog'
   
-  function repeatString(str, count) { 
+/*  function repeatString(str, count) { 
+    //string = ''
+    //while i < count
+    //string += str
+    var string = '';
+    var i = 0;
+
+    while(i < count) {
+      if(count === 0) {
+        string = '';
+      }
+      string += str;
+      i++
+    }
+    return string
    // TODO: your code here 
-  } 
+  }*/ 
    
+  function repeatString(str, count) {
+    var string = '';
+
+    if(count === 0) {
+      return string = '';  
+    }
+    return string + repeatString(str, count-1)
+  }
   
   //=============================================================================
   /*                                  Q5                                       */
@@ -152,6 +206,31 @@ function each(coll, f) {
   
   // Write your code here .....
   
+  function makePizza(crust, size, numberOfSlice) {
+    return {
+      crust: crust,
+      size: size,
+      numberOfSlice: numberOfSlice,
+      addIngredients: function(ingredient) {
+            var ingred = [];
+            ingred.push(ingredient);
+          },
+      displayIngredients: function() {
+            return this.ingredient.split(',');
+          },
+      bakePizza: function() {
+            setTimeout('Your thin M 8 slice pizza is done', 2000)
+          },
+      eatSlice: function() {
+            if(this.numberOfSlice > 0) {
+              this.numberOfSlice -= 1;   
+            } 
+            return this.numberOfSlice;
+          }
+    }
+  }
+
+
   //=============================================================================
   /*                                  Q6                                      */
   //=============================================================================
@@ -175,9 +254,39 @@ function each(coll, f) {
   */
   
   // Now, to make sure that you are actually reading, make a comment below this and type: Yes I am
-  
+  //yes i am
   // Write your code here .....
   
+  //class ReadingList
+  //parameters red, unread,  to read[], currrentread, readbook [], addbook()
+
+function ReadingList(read, unRead, toRead, currentRead, readBooks) {
+  var readingList = {};
+
+  readingList.read = read;
+  readingList.unRead = unRead;
+  readingList.toRead = toRead;
+  readingList.currentRead = currentRead;
+  readingList.readBooks = readBooks;
+  readingList.AddBook = AddBook;
+  readingList.finishCurrentBook = finishCurrentBook;
+
+  return readingList;
+}
+
+var AddBook = function(book) {
+  this.toRead.push(book);
+  this.unRead += 1;
+
+}
+
+var finishCurrentBook = function() {
+  this.readBooks.push(this.currentRead);
+  this.read += 1;
+  this.toRead.unshift(this.currentRead);
+  this.unRead -= 1;
+
+}
   //=============================================================================
   /*                                  Q7                                       */
   //=============================================================================
@@ -198,6 +307,13 @@ function each(coll, f) {
   
   // Write your code here .....
   
+  function makeSafe(integer) {
+    return {
+      addItem: function(item, itemSize) {
+          
+        }
+    }
+  }
   //=============================================================================
   /*                                  Q8                                       */
   //=============================================================================
